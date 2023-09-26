@@ -102,4 +102,10 @@ describe("Gets an array of numbers and returns the next value in the Fibonacci s
     const nextFibonacciValue = getNextFibonacciValue(fibonacciSequence);
     expect(nextFibonacciValue).toBe(13);
   });
+  test("IsItFibonacci", () => {
+    const nonFibonacciSequence = [1, 2, 4, 7, 11];
+    expect(() => getNextFibonacciValue(nonFibonacciSequence)).toThrowError(
+      "The input array no Fibonacci."
+    );
+  });
 });

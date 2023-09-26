@@ -68,9 +68,14 @@ export function getNextFibonacciValue(numbers: number[]): number {
   if (numbers.length < 2) {
     throw new Error("The input array must contain at least two numbers.");
   }
+  for (let i = 2; i < numbers.length; i++) {
+    if (numbers[i - 1] + numbers[i - 2] !== numbers[i]) {
+      throw new Error("The input array no Fibonacci.");
+    }
+  }
   const lastIndex = numbers.length - 1;
-  const secondToLastIndex = lastIndex - 1;
-  const nextValue = numbers[lastIndex] + numbers[secondToLastIndex];
+  const secondIndex = lastIndex - 1;
+  const nextValue = numbers[lastIndex] + numbers[secondIndex];
 
   return nextValue;
 }
